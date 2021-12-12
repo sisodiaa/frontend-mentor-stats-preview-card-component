@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lexend+Deca&display=swap');
 
+$breakpoint-mobile: 39em;
+
 :root {
   --color-dark-blue: hsl(233, 47%, 7%);
   --color-desaturated-blue: hsl(244, 38%, 16%);
@@ -29,18 +31,33 @@ body {
 }
 
 .container {
-  width: 84%;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120vh;
+
+  @media only screen and (min-width: $breakpoint-mobile) {
+    height: 100vh;
+  }
 }
 
 .stats {
-  width: 100%;
+  width: 84%;
   margin-top: 10vh;
   margin-bottom: 10vh;
   background-color: var(--color-desaturated-blue);
   border-radius: 1rem;
   overflow: hidden;
   text-align: center;
+
+  @media only screen and (min-width: $breakpoint-mobile) {
+    width: 84%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 
   &__header {
     // https://stackoverflow.com/a/22211990
@@ -53,10 +70,23 @@ body {
     height: 0;
     padding-top: 73.3944%;
     background-blend-mode: multiply;
+
+    @media only screen and (min-width: $breakpoint-mobile) {
+      background-image: url(../images/image-header-desktop.jpg);
+      background-position: center;
+      background-size: contain;
+      grid-row: 1 / span 1;
+      grid-column: 2 / span 1;
+      padding-top: 82.5925%;
+    }
   }
 
   &__text {
-    margin: 2rem 1.5rem;
+    padding: 2rem 1.5rem;
+
+    @media only screen and (min-width: $breakpoint-mobile) {
+      padding: 5rem 6rem;
+    }
   }
 
   &__heading {
@@ -67,16 +97,31 @@ body {
     span {
       color: var(--color-soft-violet);
     }
+
+    @media only screen and (min-width: $breakpoint-mobile) {
+      font-size: 2.2rem;
+      width: 90%;
+    }
   }
 
   &__description {
     margin-bottom: 2rem;
     line-height: 1.6;
     color: var(--color-description);
+
+    @media only screen and (min-width: $breakpoint-mobile) {
+      width: 95%;
+    }
   }
 
   &__list {
     list-style: none;
+
+    @media only screen and (min-width: $breakpoint-mobile) {
+      width: 95%;
+      display: flex;
+      justify-content: space-between;
+    }
   }
 
   &__item {

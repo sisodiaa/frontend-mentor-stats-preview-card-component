@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lexend+Deca&display=swap');
 
-$breakpoint-mobile: 39em;
+$breakpoint-mobile: 60em;
 
 :root {
   --color-dark-blue: hsl(233, 47%, 7%);
@@ -45,11 +45,26 @@ body {
   overflow: hidden;
   background-color: var(--color-desaturated-blue);
 
+  @media only screen and (min-width: $breakpoint-mobile) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: min-content;
+    max-width: 75rem;
+  }
+
   &__header {
     // Set Parent Width equal to Children Total Width
     // https://stackoverflow.com/a/41476558
     display: inline-flex;
     background-color: var(--color-soft-violet);
+
+    @media only screen and (min-width: $breakpoint-mobile) {
+      grid-row: 1 / span 1;
+      grid-column: 2 / span 1;
+    }
+
+    source {
+      display: inline-table;
+    }
 
     img {
       display: inline-table;
@@ -65,12 +80,24 @@ body {
     justify-content: center;
     padding: 2rem 1.5rem;
     text-align: center;
+
+    @media only screen and (min-width: $breakpoint-mobile) {
+      grid-row: 1 / span 1;
+      grid-column: 1 / span 1;
+      padding: 5rem;
+      text-align: left;
+      width: 94%;
+    }
   }
 
   &__heading {
     font-size: 1.8rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
+
+    @media only screen and (min-width: $breakpoint-mobile) {
+      font-size: 2.2rem;
+    }
 
     span {
       color: var(--color-soft-violet);
@@ -85,6 +112,11 @@ body {
 
   &__list {
     list-style: none;
+
+    @media only screen and (min-width: $breakpoint-mobile) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 
   &__item {
